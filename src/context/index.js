@@ -10,7 +10,10 @@ export default function GlobalState({ children }) {
   const [loggedInAccount, setLoggedInAccount] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [pageLoader, setPageLoader] = useState(true);
+  const [mediaData, setMediaData] = useState([]);
+
   const { data: session } = useSession();
+  // =======================================================
   useEffect(() => {
     setLoggedInAccount(JSON.parse(sessionStorage.getItem("loggedInAccount")));
   }, []);
@@ -25,6 +28,8 @@ export default function GlobalState({ children }) {
         setAccounts,
         pageLoader,
         setPageLoader,
+        mediaData,
+        setMediaData,
       }}
     >
       {children}

@@ -1,5 +1,6 @@
 "use client";
 
+import CommonLayout from "@/components/common-layout";
 import ManageAccounts from "@/components/manage-accounts";
 import UnauthPage from "@/components/unauth-page";
 import { GlobalContext } from "@/context";
@@ -16,5 +17,9 @@ export default function Browse() {
   // check for logged in account, (different from github auth)
   if (loggedInAccount === null) return <ManageAccounts />;
   // ====================================================================
-  return <div>Browse</div>;
+  return (
+    <main className="flex min-h-screen flex-col">
+      <CommonLayout />
+    </main>
+  );
 }

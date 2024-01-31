@@ -49,7 +49,7 @@ export default function PinContainer({
         <h1 className="text-gray-400 font-bold text-[16px] mb-4">
           Profile Lock is currently ON
         </h1>
-        {/* pin error =========================== */}
+        {/* pin error ========================================== */}
         {pinError ? (
           <h2 className="text-[#e6b209] font-bold text-[30px]">
             Whoops, wrong PIN. Please try again
@@ -59,7 +59,7 @@ export default function PinContainer({
             Enter your PIN to access this profile
           </h2>
         )}
-        {/* pin input =============================== */}
+        {/* pin input ============================================ */}
         <PinInput
           length={4}
           initialValue={pin}

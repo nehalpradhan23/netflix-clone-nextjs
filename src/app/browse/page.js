@@ -31,8 +31,8 @@ export default function Browse() {
       const topratedTvShows = await getTopratedMedias("tv");
 
       const trendingMovieShows = await getTrendingMedias("movie");
-      const popularMovieShows = await getTrendingMedias("movie");
-      const topratedMovieShows = await getTrendingMedias("movie");
+      const popularMovieShows = await getPopularMedias("movie");
+      const topratedMovieShows = await getTopratedMedias("movie");
 
       // get data and separate movies and tvs
       setMediaData([

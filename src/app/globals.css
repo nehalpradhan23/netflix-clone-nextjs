@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-[#141414] text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
+    @apply bg-[#141414] text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600 scrollbar-hide;
   }
 }
 
@@ -130,8 +130,8 @@
   margin: -6px;
   width: inherit;
   height: inherit;
-  animation: circleLoader-spin 1.1s linear infinite,1!important;
-  -webkit-animation: circleLoader-spin 1.1s linear infinite,1!important; 
+  animation: circleLoader-spin 1.1s linear infinite, 1 !important;
+  -webkit-animation: circleLoader-spin 1.1s linear infinite, 1 !important;
 }
 
 .player-wrapper {
@@ -158,8 +158,6 @@
 .cardWrapper:hover {
   background: black;
 }
-
-
 
 .cardWrapper:hover .buttonWrapper {
   display: flex;

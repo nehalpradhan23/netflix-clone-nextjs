@@ -52,6 +52,7 @@ export default function Navbar() {
     },
   ];
 
+  // make navbar bg dark after scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -59,10 +60,10 @@ export default function Navbar() {
       } else {
         setIsScrolled(false);
       }
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -92,7 +93,9 @@ export default function Navbar() {
   return (
     <div className="relative">
       <header
-        className={`header ${isScrolled && "bg-[#141414]"} hover:bg-[#141414]`}
+        className={`header ${
+          isScrolled && "bg-[#141414]"
+        } hover:bg-[#141414] transition-all`}
       >
         <div className="flex items-center space-x-2 md:space-x-10">
           <img
@@ -107,6 +110,12 @@ export default function Navbar() {
           <ul className="hidden md:space-x-4 md:flex cursor-pointer">
             {menuItems.map((item) => (
               <li
+                onClick={() => {
+                  setPageLoader(true);
+                  router.push(item.path);
+                  setSearchQuery("");
+                  setShowSearchBar(false);
+                }}
                 key={item.id}
                 className="cursor-pointer text-[16px] font-light text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3]"
               >

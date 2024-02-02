@@ -32,12 +32,12 @@ export default function Banner({ medias }) {
         <div className="absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20" />
       </div>
       {/* banner info ----------------------------------------- */}
-      <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold">
+      <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold bg-black/60 p-2 rounded-sm max-w-fit">
         {createRandomMedia?.title ||
           createRandomMedia?.name ||
           createRandomMedia?.original_name}
       </h1>
-      <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl line-clamp-5">
+      <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl line-clamp-5 bg-black/60 p-2 rounded-sm">
         {createRandomMedia?.overview}
       </p>
       {/* banner buttons ======================= */}

@@ -9,14 +9,14 @@ export default function Search({
   setPageLoader,
   setShowSearchBar,
 }) {
-  // function handleSubmit(e) {
-  //   if (e.key === "Enter" && searchQuery && searchQuery.trim() !== "") {
-  //     setPageLoader(true);
-  //     if (pathName.includes("/search"))
-  //       router.replace(`/search/${searchQuery}`);
-  //     else router.push(`/search/${searchQuery}`);
-  //   }
-  // }
+  function handleSubmit(e) {
+    if (e.key === "Enter" && searchQuery && searchQuery.trim() !== "") {
+      setPageLoader(true);
+      if (pathName.includes("/search"))
+        router.replace(`/search/${searchQuery}`); // if already in page
+      else router.push(`/search/${searchQuery}`);
+    }
+  }
 
   return (
     <div className="hidden md:flex justify-center items-center text-center">
@@ -25,7 +25,7 @@ export default function Search({
           <input
             name="search"
             value={searchQuery}
-            // onKeyUp={handleSubmit}
+            onKeyUp={handleSubmit}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search Movies, TV and Dramas"
             className="bg-transparent text-[14px] font-medium h-[34px] px-4 py-2 placeholder:text-[14px] font-md text-white outline-none w-[210px]"

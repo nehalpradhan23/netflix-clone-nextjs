@@ -89,6 +89,7 @@ export const getTVorMovieVideosByID = async (type, id) => {
   }
 };
 
+// search function ===============================================
 export const getTVorMovieSearchResults = async (type, query) => {
   try {
     const res = await fetch(

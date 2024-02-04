@@ -12,6 +12,12 @@ export default function GlobalState({ children }) {
   const [pageLoader, setPageLoader] = useState(false);
   const [mediaData, setMediaData] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const [currentMediaInfoIdAndType, setCurrentMediaInfoIdAndType] =
+    useState(null);
+  const [showDetailsPopup, setShowDetailsPopup] = useState(false);
+  const [mediaDetails, setMediaDetails] = useState(null);
+  const [similarMedias, setSimilarMedias] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   const { data: session } = useSession();
   // =======================================================
@@ -28,11 +34,21 @@ export default function GlobalState({ children }) {
         accounts,
         setAccounts,
         pageLoader,
-        setPageLoader,
         mediaData,
         setMediaData,
+        setPageLoader,
         searchResults,
         setSearchResults,
+        currentMediaInfoIdAndType,
+        setCurrentMediaInfoIdAndType,
+        showDetailsPopup,
+        setShowDetailsPopup,
+        mediaDetails,
+        setMediaDetails,
+        similarMedias,
+        setSimilarMedias,
+        favorites,
+        setFavorites,
       }}
     >
       {children}

@@ -8,6 +8,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { GlobalContext } from "@/context";
 import AccountPopup from "./account-popup";
 import CircleLoader from "../circle-loader";
+import DetailsPopup from "../details-popup";
 
 // ===================================================
 
@@ -27,6 +28,8 @@ export default function Navbar() {
     accounts,
     setLoggedInAccount,
     pageLoader,
+    showDetailsPopup,
+    setShowDetailsPopup,
   } = useContext(GlobalContext);
 
   const menuItems = [
@@ -155,6 +158,7 @@ export default function Navbar() {
           </div>
         </div>
       </header>
+      <DetailsPopup show={showDetailsPopup} setShow={setShowDetailsPopup} />
       {/* account popup */}
       {showAccountPopup && (
         <AccountPopup

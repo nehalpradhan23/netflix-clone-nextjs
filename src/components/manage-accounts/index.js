@@ -1,7 +1,7 @@
 "use client";
 
 import { GlobalContext } from "@/context";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useContext, useEffect, useState } from "react";
 import CircleLoader from "../circle-loader";
 import AccountForm from "./account-form";
@@ -94,6 +94,7 @@ export default function ManageAccounts() {
 
   // handle pin submit ==================================================
   async function handlePinSubmit(value, index) {
+    setPageLoader(true);
     const response = await fetch("/api/account/login-to-account", {
       method: "POST",
       headers: {
@@ -113,7 +114,11 @@ export default function ManageAccounts() {
         "loggedInAccount",
         JSON.stringify(showPinContainer.account)
       );
-      router.push(pathname);
+      if (pathname.includes("my-list"))
+        router.push(
+          `/my-list/${session?.user?.uid}/${showPinContainer.account?._id}`
+        );
+      else router.push(pathname);
       setPageLoader(false);
     } else {
       console.log("unsuccessful login");
@@ -129,6 +134,19 @@ export default function ManageAccounts() {
   // =============================================================
   return (
     <div className="min-h-screen flex justify-center flex-col items-center relative">
+      <div>
+        <button
+          onClick={() => {
+            setPageLoader(true);
+            signOut();
+            setLoggedInAccount(null);
+            sessionStorage.removeItem("loggedInAccount");
+          }}
+          className="absolute top-3 right-3 bg-red-600 transition-all p-2 my-2"
+        >
+          Sign out
+        </button>
+      </div>
       <div className="flex justify-center flex-col items-center">
         <h1 className="text-white font-bold text-[54px] my-[36px]">
           Who's watching

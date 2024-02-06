@@ -116,7 +116,7 @@ export default function MediaItem({
       }
     }
 
-    console.log(data, "sangam");
+    // console.log(data);
   }
 
   async function handleRemoveFavorites(item) {

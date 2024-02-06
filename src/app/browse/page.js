@@ -6,6 +6,7 @@ import ManageAccounts from "@/components/manage-accounts";
 import UnauthPage from "@/components/unauth-page";
 import { GlobalContext } from "@/context";
 import {
+  getAllfavorites,
   getPopularMedias,
   getTopratedMedias,
   getTrendingMedias,
@@ -33,6 +34,10 @@ export default function Browse() {
       const trendingMovieShows = await getTrendingMedias("movie");
       const popularMovieShows = await getPopularMedias("movie");
       const topratedMovieShows = await getTopratedMedias("movie");
+      const allFavorites = await getAllfavorites(
+        session?.user?.uid,
+        loggedInAccount?._id
+      );
 
       // get data and separate movies and tvs
       setMediaData([
@@ -54,6 +59,11 @@ export default function Browse() {
           medias: item.medias.map((mediaItem) => ({
             ...mediaItem,
             type: "tv",
+            addedToFavorites:
+              allFavorites && allFavorites.length
+                ? allFavorites.map((fav) => fav.movieID).indexOf(mediaItem.id) >
+                  -1
+                : false,
           })),
         })),
         ...[
@@ -74,6 +84,11 @@ export default function Browse() {
           medias: item.medias.map((mediaItem) => ({
             ...mediaItem,
             type: "movie",
+            addedToFavorites:
+              allFavorites && allFavorites.length
+                ? allFavorites.map((fav) => fav.movieID).indexOf(mediaItem.id) >
+                  -1
+                : false,
           })),
         })),
         ,

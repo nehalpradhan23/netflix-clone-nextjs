@@ -9,7 +9,7 @@ import { getAllfavorites, getTVorMoviesByGenre } from "@/utils";
 import { useSession } from "next-auth/react";
 import { useContext, useEffect } from "react";
 
-export default function Movies() {
+export default function medias() {
   const {
     loggedInAccount,
     mediaData,
@@ -39,7 +39,7 @@ export default function Movies() {
         session?.user?.uid,
         loggedInAccount?._id
       );
-      console.log(allFavorites, "allFavorites");
+      // console.log(allFavorites, "allFavorites");
       setMediaData(
         [
           {
@@ -117,7 +117,7 @@ export default function Movies() {
   if (loggedInAccount === null) return <ManageAccounts />;
   if (pageLoader) return <CircleLoader />;
 
-  console.log(mediaData, "mediaData");
+  // console.log(mediaData, "mediaData");
 
   return (
     <main className="flex min-h-screen flex-col">

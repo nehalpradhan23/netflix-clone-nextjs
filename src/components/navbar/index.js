@@ -13,7 +13,7 @@ import DetailsPopup from "../details-popup";
 // ===================================================
 
 export default function Navbar() {
-  const { session } = useSession();
+  const { data: session } = useSession();
   const [isScrolled, setIsScrolled] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -51,7 +51,7 @@ export default function Navbar() {
     {
       id: "my-list",
       title: "My List",
-      path: `/my-list`,
+      path: `/my-list/${session?.user?.uid}/${loggedInAccount?._id}`,
     },
   ];
 

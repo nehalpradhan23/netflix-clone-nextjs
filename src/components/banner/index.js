@@ -13,7 +13,7 @@ export default function Banner({ medias }) {
       ? medias[Math.floor(Math.random() * medias.length)]
       : null;
 
-  console.log(createRandomMedia, "createRandomMedia");
+  // console.log(createRandomMedia, "createRandomMedia");
 
   const router = useRouter();
 

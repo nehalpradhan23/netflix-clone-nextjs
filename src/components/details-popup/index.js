@@ -32,7 +32,7 @@ export default function DetailsPopup({ show, setShow }) {
   const router = useRouter();
   const { data: session } = useSession();
 
-  console.log(currentMediaInfoIdAndType);
+  // console.log(currentMediaInfoIdAndType);
 
   useEffect(() => {
     if (currentMediaInfoIdAndType !== null) {
@@ -52,7 +52,7 @@ export default function DetailsPopup({ show, setShow }) {
           loggedInAccount?._id
         );
 
-        console.log(extractMediaDetails, "extractMediaDetails");
+        // console.log(extractMediaDetails, "extractMediaDetails");
 
         const findIndexOfTrailer =
           extractMediaDetails &&

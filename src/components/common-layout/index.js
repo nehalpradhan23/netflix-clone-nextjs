@@ -29,7 +29,7 @@ export default function CommonLayout({ mediaData }) {
                   <MediaRow
                     title={item?.title}
                     medias={item?.medias}
-                    key={item.title}
+                    key={item?.title}
                   />
                 ))
               : null}

@@ -55,7 +55,7 @@ export default function PinContainer({
             Whoops, wrong PIN. Please try again
           </h2>
         ) : (
-          <h2 className="text-white font-bold text-[30px]">
+          <h2 className="text-white font-bold text-center text-[30px]">
             Enter your PIN to access this profile
           </h2>
         )}

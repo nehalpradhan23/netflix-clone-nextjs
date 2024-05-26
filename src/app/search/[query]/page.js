@@ -82,7 +82,7 @@ export default function Search() {
       viewport={{ once: true }}
     >
       <Navbar />
-      <div className="mt-[100px] space-y-0.5 md:space-y-2 px-4">
+      <div className="mt-[150px] md:mt-[100px] space-y-0.5 md:space-y-2 px-4">
         <h2 className="cursor-pointer text-sm font-semibold text-[#e5e5e5] transition-colors duration-200 hover:text-white md:text-2xl">
           Showing Results for {decodeURI(params.query)}
         </h2>

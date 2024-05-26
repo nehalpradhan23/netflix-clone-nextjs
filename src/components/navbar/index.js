@@ -96,17 +96,22 @@ export default function Navbar() {
   return (
     <div className="relative">
       <header
-        className={`header ${
+        className={`fixed top-0 z-50 flex w-full md:items-center justify-between px-4 h-[68px] transition-all lg:px-14 max-md:bg-[#141414]  text-white max-md:h-[110px] ${
           isScrolled && "bg-[#141414]"
         } hover:bg-[#141414] transition-all`}
       >
-        <div className="flex items-center space-x-2 md:space-x-10">
+        {/* <header
+        className={`header ${
+          isScrolled && "bg-[#141414]"
+        } hover:bg-[#141414] transition-all`}
+      > */}
+        <div className="flex md:items-center space-x-2 md:space-x-10">
           <img
             src="https://rb.gy/ulxxee"
             width={120}
             height={120}
             alt="netflix"
-            className="cursor-pointer object-contain"
+            className="cursor-pointer object-contain max-md:h-fit max-md:pt-5"
             onClick={() => router.push("/browse")}
           />
           {/* menu items =============================== */}
@@ -128,7 +133,7 @@ export default function Navbar() {
           </ul>
         </div>
         {/* search bar ====================================== */}
-        <div className="font-light flex items-center space-x-4 text-sm">
+        <div className="font-light flex max-md:pt-5 md:items-center space-x-4 text-sm">
           {showSearchBar ? (
             <Search
               pathName={pathName}
@@ -141,13 +146,13 @@ export default function Navbar() {
           ) : (
             <AiOutlineSearch
               onClick={() => setShowSearchBar(true)}
-              className="hidden sm:inline sm:w-6 sm:h-6 cursor-pointer"
+              className="inline w-6 h-6 cursor-pointer"
             />
           )}
           {/* account =============================== */}
           <div
             onClick={() => setShowAccountPopup(!showAccountPopup)}
-            className="flex gap-2 items-center cursor-pointer"
+            className="flex gap-2 md:items-center cursor-pointer"
           >
             <img
               src="https://occ-0-2611-3663.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABfNXUMVXGhnCZwPI1SghnGpmUgqS_J-owMff-jig42xPF7vozQS1ge5xTgPTzH7ttfNYQXnsYs4vrMBaadh4E6RTJMVepojWqOXx.png?r=1d4"
@@ -157,6 +162,25 @@ export default function Navbar() {
             <p>{loggedInAccount && loggedInAccount.name}</p>
           </div>
         </div>
+        {/* menu for small screen ============== */}
+        <ul
+          className={`absolute w-full flex items-center bottom-4 right-0 justify-center space-x-6 md:space-x-4 md:hidden cursor-pointer`}
+        >
+          {menuItems.map((item) => (
+            <li
+              onClick={() => {
+                setPageLoader(true);
+                router.push(item.path);
+                setSearchQuery("");
+                setShowSearchBar(false);
+              }}
+              key={item.id}
+              className="cursor-pointer text-[16px] font-light text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3]"
+            >
+              {item.title}
+            </li>
+          ))}
+        </ul>
       </header>
       <DetailsPopup show={showDetailsPopup} setShow={setShowDetailsPopup} />
       {/* account popup */}

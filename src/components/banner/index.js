@@ -18,7 +18,7 @@ export default function Banner({ medias }) {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 lg:pl-24">
+    <div className="flex flex-col space-y-2 py-16 max-md:mt-14 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 lg:pl-24">
       {/* banner image ================================ */}
       <div className="absolute top-0 left-0 h-[95vh] w-screen -z-10">
         <Image
@@ -32,12 +32,12 @@ export default function Banner({ medias }) {
         <div className="absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20" />
       </div>
       {/* banner info ----------------------------------------- */}
-      <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold bg-black/50 p-2 rounded-sm max-w-fit">
+      <h1 className="text-3xl md:text-4xl lg:text-7xl font-bold bg-black/50 p-2 rounded-sm max-w-fit">
         {createRandomMedia?.title ||
           createRandomMedia?.name ||
           createRandomMedia?.original_name}
       </h1>
-      <p className="max-w-xs text-shadow-md text-xs md:max-w-lg md:text-lg lg:max-w-2xl line-clamp-5 bg-black/50 p-2 rounded-sm">
+      <p className="max-w-xs text-shadow-md text-sm md:max-w-lg md:text-lg lg:max-w-2xl line-clamp-5 bg-black/50 p-2 rounded-sm">
         {createRandomMedia?.overview}
       </p>
       {/* banner buttons ======================= */}

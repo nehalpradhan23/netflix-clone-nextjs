@@ -19,7 +19,7 @@ export default function CommonLayout({ mediaData }) {
       </Head>
       <>
         <Navbar />
-        <div className="relative pl-4 pb-24 lg:space-y-24">
+        <div className="relative pl-4 pb-24 lg:space-y-24 bg-black/70">
           <Banner
             medias={mediaData && mediaData.length ? mediaData[0].medias : []}
           />

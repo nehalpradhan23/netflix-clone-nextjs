@@ -65,7 +65,7 @@ export default function MyList() {
           {/* <div className="grid grid-cols-5 gap-3 items-center scrollbar-hide md:p-2"> */}
           {favorites && favorites.length ? (
             favorites.map((searchItem) => (
-              <div className="">
+              <div className="" key={searchItem.id}>
                 <MediaItem
                   key={searchItem.id}
                   media={searchItem}

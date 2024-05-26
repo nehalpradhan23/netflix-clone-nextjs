@@ -149,7 +149,7 @@ export default function ManageAccounts() {
       </div>
       <div className="flex justify-center flex-col items-center">
         <h1 className="text-white font-bold text-[35px] md:text-[54px] my-[36px]">
-          Who's watching
+          Who&apos;s watching
         </h1>
         {/* show accounts ================================= */}
         <ul className="flex md:gap-8 p-0 my-[25px]">

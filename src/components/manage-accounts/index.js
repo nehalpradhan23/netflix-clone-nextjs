@@ -142,22 +142,22 @@ export default function ManageAccounts() {
             setLoggedInAccount(null);
             sessionStorage.removeItem("loggedInAccount");
           }}
-          className="absolute top-3 right-3 bg-red-600 transition-all p-2 my-2"
+          className="absolute top-3 right-3 bg-red-600 hover:bg-red-800 transition-all p-2 my-2"
         >
           Sign out
         </button>
       </div>
       <div className="flex justify-center flex-col items-center">
-        <h1 className="text-white font-bold text-[54px] my-[36px]">
+        <h1 className="text-white font-bold text-[35px] md:text-[54px] my-[36px]">
           Who's watching
         </h1>
         {/* show accounts ================================= */}
-        <ul className="flex gap-8 p-0 my-[25px]">
+        <ul className="flex md:gap-8 p-0 my-[25px]">
           {accounts && accounts.length
             ? accounts.map((item) => (
                 <li
                   key={item.id}
-                  className="max-w-[200px] w-[155px] cursor-pointer min-w-[200px] flex flex-col items-center gap-3 hover:scale-110 transition-all"
+                  className="max-w-[200px] w-[100px] md:w-[155px] cursor-pointer flex flex-col items-center gap-1 md:gap-3 hover:scale-110 transition-all"
                   onClick={
                     showDeleteIcon
                       ? null
@@ -170,7 +170,7 @@ export default function ManageAccounts() {
                       src={
                         "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
                       }
-                      className="max-w-[200px] rounded min-w-[84px] max-h-[200px] min-h-[84px] object-cover w-[155px] h-[155px]"
+                      className="max-w-[200px] rounded-2xl min-w-[84px] max-h-[200px] min-h-[84px] object-cover w-[60px] h-[60px] md:w-[155px] md:h-[155px]"
                     />
                     {/* delete icon ------------------------------- */}
                     {showDeleteIcon ? (
@@ -207,7 +207,7 @@ export default function ManageAccounts() {
           {accounts && accounts.length < 4 ? (
             <li
               onClick={() => setShowAccountForm(!showAccountForm)}
-              className="border text-black bg-[#e5b109] font-bold text-lg border-black max-w-[200px] rounded min-w-[84px] max-h-[200px] min-h-[84px] w-[155px] h-[155px] cursor-pointer flex justify-center items-center hover:scale-110 transition-all"
+              className="border text-white bg-[#e53509] font-bold text-xs md:text-lg border-black max-w-[200px] rounded-2xl min-w-[84px] max-h-[200px] min-h-[84px] w-[60px] h-[60px] md:w-[155px] md:h-[155px] cursor-pointer flex justify-center items-center hover:scale-110 transition-all"
             >
               Add Account
             </li>
@@ -237,6 +237,7 @@ export default function ManageAccounts() {
         formData={formData}
         setFormData={setFormData}
         showAccountForm={showAccountForm}
+        setShowAccountForm={setShowAccountForm}
         handleSave={handleSave}
       />
     </div>
